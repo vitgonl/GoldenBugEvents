@@ -1,0 +1,385 @@
+/* =========================================================
+   GoldenBugEvents - style.css
+   1. Variáveis  2. Base  3. Cabeçalho  4. Início  5. Eventos
+   6. Sobre  7. Rodapé  8. Responsividade
+   ========================================================= */
+
+/* ---------- 1. VARIÁVEIS (cores e fontes em um só lugar) ---------- */
+:root {
+  --verde: #16281f;
+  --dourado: #d4a017;
+  --dourado-escuro: #8a6200;
+  --fundo: #eef0e7;
+  --papel: #fbfbf6;
+  --texto: #22251c;
+  --texto-suave: #5b6152;
+  --borda: #d6d9cb;
+  --favorito: #b3261e;
+  --raio: 10px;
+  --fonte-titulo: Georgia, 'Times New Roman', serif;
+  --fonte-texto: system-ui, 'Segoe UI', Roboto, Arial, sans-serif;
+  --lateral: max(1.25rem, calc((100% - 1100px) / 2));
+}
+
+/* ---------- 2. BASE ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte-texto);
+  line-height: 1.55;
+  color: var(--texto);
+  background: var(--fundo);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  line-height: 1.15;
+}
+
+p {
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid var(--dourado-escuro);
+  outline-offset: 2px;
+}
+
+.header :focus-visible,
+.footer :focus-visible {
+  outline-color: var(--dourado);
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* ---------- 3. CABEÇALHO ---------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem var(--lateral);
+  background: var(--verde);
+  color: #fff;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  color: var(--dourado);
+}
+
+.logo p {
+  font-size: 0.85rem;
+  color: #c9d1c3;
+}
+
+.header nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.header nav a {
+  padding: 0.25rem 0;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.header nav a:hover {
+  border-bottom-color: var(--dourado);
+}
+
+/* ---------- 4. INÍCIO ---------- */
+.inicio {
+  padding: 4.5rem var(--lateral);
+  background: var(--dourado);
+  color: var(--verde);
+}
+
+.inicio h2 {
+  max-width: 16ch;
+  font-size: clamp(2.2rem, 6vw, 3.75rem);
+}
+
+.inicio p {
+  max-width: 36rem;
+  margin-top: 1rem;
+  font-size: 1.15rem;
+}
+
+/* ---------- 5. EVENTOS ---------- */
+.eventos {
+  padding: 3rem var(--lateral);
+}
+
+.eventos h2 {
+  margin-bottom: 1.25rem;
+  font-size: 2rem;
+}
+
+.search {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.search input {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--borda);
+  border-radius: var(--raio);
+  background: var(--papel);
+  color: inherit;
+}
+
+.search input:focus {
+  border-color: var(--verde);
+}
+
+.search button {
+  padding: 0.8rem 1.4rem;
+  border: 0;
+  border-radius: var(--raio);
+  background: var(--verde);
+  color: #fff;
+  font-weight: 700;
+}
+
+.search button:hover {
+  background: #254634;
+}
+
+.categorias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.categorias button {
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--borda);
+  border-radius: 999px;
+  background: var(--papel);
+  color: var(--texto);
+}
+
+.categorias button:hover {
+  border-color: var(--verde);
+}
+
+.categorias button.ativo {
+  border-color: var(--dourado);
+  background: var(--dourado);
+  color: var(--verde);
+  font-weight: 700;
+}
+
+.contador {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1.5rem 0 1rem;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+.eventos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.4rem;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  background: var(--papel);
+}
+
+.card-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-categoria {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: var(--verde);
+  color: var(--dourado);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.card h3 {
+  margin: 0.6rem 0 0.3rem;
+  font-size: 1.4rem;
+}
+
+.card-info {
+  color: var(--texto-suave);
+}
+
+.card-info strong {
+  margin-right: 0.4rem;
+  color: var(--texto);
+}
+
+.btn-detalhes {
+  align-self: flex-start;
+  margin-top: 0.8rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--verde);
+  border-radius: var(--raio);
+  background: transparent;
+  color: var(--verde);
+  font-weight: 700;
+}
+
+.btn-detalhes:hover {
+  background: var(--verde);
+  color: #fff;
+}
+
+.card-detalhes {
+  margin-top: 0.6rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--borda);
+}
+
+.btn-favorito {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 2px solid var(--borda);
+  border-radius: 50%;
+  background: var(--papel);
+  color: var(--texto-suave);
+  font-size: 1.3rem;
+  line-height: 1;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.btn-favorito:hover {
+  border-color: var(--favorito);
+  color: var(--favorito);
+}
+
+.btn-favorito.ativo {
+  border-color: var(--favorito);
+  color: var(--favorito);
+}
+
+.sem-eventos {
+  padding: 2rem;
+  border: 2px dashed var(--borda);
+  border-radius: var(--raio);
+  background: var(--papel);
+  color: var(--texto-suave);
+  text-align: center;
+}
+
+.sobre {
+  padding: 3rem var(--lateral);
+  border-top: 1px solid var(--borda);
+  background: var(--papel);
+}
+
+.sobre h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1.6rem;
+}
+
+.sobre p {
+  max-width: 60ch;
+}
+
+.footer {
+  padding: 2rem var(--lateral);
+  background: var(--verde);
+  color: #c9d1c3;
+}
+
+.footer strong {
+  color: var(--dourado);
+  font-family: var(--fonte-titulo);
+  font-size: 1.2rem;
+}
+
+.footer p {
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+}
+
+/* ---------- 8. RESPONSIVIDADE (celular) ---------- */
+@media (max-width: 700px) {
+  .header {
+    position: static;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  section[id] {
+    scroll-margin-top: 1rem;
+  }
+
+  .inicio {
+    padding: 2.75rem var(--lateral);
+  }
+
+  .eventos,
+  .sobre {
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+  }
+
+  .search {
+    flex-direction: column;
+  }
+
+  .search button {
+    padding: 0.8rem;
+  }
+
+  .card {
+    padding: 1.15rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .btn-favorito {
+    transition: none;
+  }
+}
